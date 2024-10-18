@@ -1,0 +1,100 @@
+---
+// No necesitas importar nada aquí a menos que uses componentes específicos dentro del header.
+---
+
+<header>
+	<nav class="container--static">
+        <div class="logo">            
+            <a href="/">
+                <img class="logo__imagen" src="/logo.png" />
+                <span class="logo__texto">LBCDev</span>
+            </a>
+        </div>
+		<ul>
+			<li class="nav__item"><a href="#home">Incio</a></li>
+			<li class="nav__item"><a href="#servicios">Servicios</a></li>
+			<li class="nav__item"><a href="#proyectos">Mis Trabajos</a></li>
+			<li class="nav__item"><a href="#contacto">Contacto</a></li>
+		</ul>
+	</nav>
+</header>
+
+<style>
+    :root{
+        --header-altura: 75px;
+    }
+
+	header {
+		background-color: transparent
+		color: white;
+		padding: 0.5rem;
+        height: var(--header-altura);
+	}
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    .logo{
+        display:flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo a{
+        text-decoration: none;
+        font-size: 1.33rem;
+        color: white;
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo a:hover{
+        color: lightblue;
+    }
+
+    .logo .logo__imagen {
+		height: var(--header-altura);
+        max-height: 50px;
+		background-color: rgba(0, 0, 0, 0.25);
+	}
+
+    .logo .logo__texto{
+        font-size: 1.33rem;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+
+	nav > ul {
+		list-style: none;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 2rem;
+		padding: 0;
+		margin: 0;
+	}
+	.nav__item {
+		margin: 0;
+		font-size: 1.33rem;
+	}
+
+    .nav__item a{
+		text-decoration: none;
+        color: white;
+	}
+
+	.nav__item a:hover {
+		color: lightblue;
+	}
+
+    .nav__logo{
+        margin:0 1.5rem;
+    }
+</style>
