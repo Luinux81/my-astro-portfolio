@@ -1,12 +1,64 @@
 ---
-
+import Button from "./Button.astro";
 ---
 
-<div class="hero"></div>
+<div class="hero">
+	<div class="hero__copy">
+		<h1 class="hero__heading">
+			Desarrollo Web <span>que <span>Impulsa tu Negocio</span></span>
+		</h1>
+		<h3 class="hero__subheading">
+			Soy Luis, desarrollador web especializado en crear sitios dinámicos,
+			funcionales y adaptados a tus necesidades. Explorando la tecnología
+			para brindar soluciones innovadoras en cada proyecto.
+		</h3>
+		<Button />
+	</div>
+	<img src="/hero.png" />
+</div>
 
 <style>
 	.hero {
-		height: calc(100vh - var(--header-altura));
-		background-color: red;
+		position: relative;
+		z-index: 1;
+		margin-top: calc(0px - var(--header-altura));
+		padding-top: var(--header-altura);
+		height: 100vh;
+		background-image: linear-gradient(#054a80 0%, #000000 100%);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.hero .hero__copy {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.hero .hero__heading {
+		font-size: 3rem;
+		text-align: center;
+		margin: 2rem auto;
+	}
+
+	.hero .hero__heading > span {
+		display: block;
+	}
+
+	.hero .hero__heading > span > span {
+		color: lightblue;
+	}
+
+	.hero .hero__subheading {
+		text-align: center;
+		width: 60%;
+		font-size: 1.25rem;
+		line-height: 1.5;
+		font-weight: normal;
+		margin-bottom: 2rem;
 	}
 </style>
