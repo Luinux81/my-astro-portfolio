@@ -17,7 +17,7 @@ import Button from "./Button.astro";
 	<img src="/hero.png" />
 </div>
 
-<style>
+<style lang="scss">
 	.hero {
 		position: relative;
 		z-index: 1;
@@ -30,35 +30,35 @@ import Button from "./Button.astro";
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-	}
 
-	.hero .hero__copy {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-	}
+		& .hero__copy {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+		}
 
-	.hero .hero__heading {
-		font-size: 3rem;
-		text-align: center;
-		margin: 2rem auto;
-	}
+		& .hero__heading {
+			font-size: 3rem;
+			text-align: center;
+			margin: 2rem auto;
 
-	.hero .hero__heading > span {
-		display: block;
-	}
+			& > span {
+				display: block;
+			}
 
-	.hero .hero__heading > span > span {
-		color: lightblue;
-	}
+			& > span > span {
+				color: lightblue;
+			}
+		}
 
-	.hero .hero__subheading {
-		text-align: center;
-		width: 60%;
-		font-size: 1.25rem;
-		line-height: 1.5;
-		font-weight: normal;
-		margin-bottom: 2rem;
+		& .hero__subheading {
+			text-align: center;
+			width: 60%;
+			font-size: 1.25rem;
+			line-height: 1.5;
+			font-weight: normal;
+			margin-bottom: 2rem;
+		}
 	}
 </style>
