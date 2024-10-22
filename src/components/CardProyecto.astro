@@ -1,0 +1,65 @@
+---
+const { titulo, descripcion, imagen, reverse } = Astro.props;
+import Button from "./Button.astro";
+
+let class_content = "";
+if (reverse === "true") {
+	class_content = "card__content card__content--reverse ";
+} else {
+	class_content = "card__content";
+}
+---
+
+<div class="card">
+	<div class={class_content}>
+		<div class="card__content--info">
+			<h3 class="card__titulo">{titulo}</h3>
+			<p class="card__descripcion">
+				{descripcion}
+			</p>
+			<Button titulo="Ver Más" />
+		</div>
+		<div class="card__content--imagen">
+			<img src={imagen} />
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	.card {
+		color: black;
+		background-color: white;
+		padding: 2rem;
+		border-radius: 15px;
+
+		&__titulo {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+
+		&__descripcion {
+			font-size: 1.25rem;
+			margin-bottom: 2rem;
+		}
+
+		&__content {
+			display: flex;
+			flex-direction: row;
+			flex-basis: 1;
+			gap: 2rem;
+
+			&--info {
+				width: calc(50% - 1rem);
+			}
+			&--imagen {
+				width: calc(50% - 1rem);
+				display: grid;
+				place-content: center;
+			}
+
+			&--reverse {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+</style>
