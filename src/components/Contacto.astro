@@ -1,0 +1,96 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="contacto__section">
+	<div class="contacto__container container--static">
+		<h2 class="contacto__titulo">Ponte en Contacto</h2>
+		<div class="contacto__content">
+			<div class="contacto__form">
+				<form>
+					<label for="nombre">Nombre</label>
+					<input type="text" id="nombre" name="nombre" />
+					<label for="email">Email</label>
+					<input type="text" id="email" name="email" />
+					<label for="mensaje">Mensaje</label>
+					<textarea rows="10" id="mensaje" name="mensaje"></textarea>
+					<div class="cta"><Button titulo="Enviar" /></div>
+				</form>
+			</div>
+			<div class="contacto__imagen">
+				<img src="/contact.png" />
+			</div>
+		</div>
+	</div>
+</section>
+<style lang="scss">
+	.contacto {
+		&__section {
+			background-image: var(--background-gradient-reverse);
+			padding: 1rem;
+		}
+
+		&__titulo {
+			font-size: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		&__content {
+			display: flex;
+			gap: 3rem;
+			min-height: 600px;
+		}
+
+		&__form {
+			width: 50%;
+			form {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+
+				label {
+					font-size: 1.25rem;
+				}
+
+				input,
+				textarea {
+					font-size: 1.1rem;
+					padding: 0.5rem 0.5rem;
+					background-color: transparent;
+					color: var(--color-text);
+				}
+
+				input {
+					border-top: 0px;
+					border-left: 0px;
+					border-right: 0px;
+					border-color: var(--color-primary);
+				}
+
+				textarea {
+					border-color: var(--color-primary);
+				}
+
+				.cta {
+					margin-top: 2rem;
+					width: 100%;
+				}
+			}
+		}
+
+		&__imagen {
+			width: 50%;
+			position: relative;
+			// text-align: center;
+
+			img {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				margin: 0 auto;
+				object-fit: cover;
+				mix-blend-mode: luminosity;
+			}
+		}
+	}
+</style>
