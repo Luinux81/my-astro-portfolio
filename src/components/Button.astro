@@ -1,8 +1,16 @@
 ---
-const { titulo } = Astro.props;
+const { titulo, tipo } = Astro.props;
+
+let type;
+
+if (tipo === "submit") {
+	type = "type='submit'";
+} else {
+	type = "";
+}
 ---
 
-<button class="button button--cta">
+<button {type} class="button button--cta">
 	{titulo}
 	<i class="fa-solid fa-arrow-right"></i>
 </button>
