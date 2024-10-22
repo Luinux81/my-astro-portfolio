@@ -7,7 +7,16 @@ import Button from "./Button.astro";
 		<h2 class="contacto__titulo">Ponte en Contacto</h2>
 		<div class="contacto__content">
 			<div class="contacto__form">
-				<form>
+				<form
+					id="contact-form"
+					action="https://api.web3forms.com/submit"
+					method="POST"
+				>
+					<input
+						type="hidden"
+						name="access_key"
+						value="b89f29e2-596c-4143-bb25-adcf3b2c1068"
+					/>
 					<label for="nombre">Nombre</label>
 					<input type="text" id="nombre" name="nombre" />
 					<label for="email">Email</label>
@@ -23,6 +32,7 @@ import Button from "./Button.astro";
 		</div>
 	</div>
 </section>
+
 <style lang="scss">
 	.contacto {
 		&__section {
