@@ -1,0 +1,47 @@
+---
+const { titulo, texto, imagen } = Astro.props;
+---
+
+<div class="card">
+	<div class="card__imagen">
+		<img class="card__imagen__icono" src={imagen} />
+	</div>
+	<h3 class="card__titulo">{titulo}</h3>
+	<p class="card__texto">
+		{texto}
+	</p>
+</div>
+
+<style lang="scss">
+	.card {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		background-color: var(--color-primary-shade);
+		border-radius: 15px;
+
+		&__titulo {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		&__imagen {
+			background-color: var(--color-primary);
+			border-radius: 50%;
+			height: 100px;
+			width: 100px;
+			display: grid;
+			place-content: center;
+
+			&__icono {
+				height: 40px;
+			}
+		}
+
+		&__texto {
+			text-align: center;
+		}
+	}
+</style>

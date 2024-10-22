@@ -1,0 +1,80 @@
+---
+import CardServicio from "./CardServicio.astro";
+---
+
+<section class="servicios__section">
+	<div class="servicios__content container--static">
+		<h2 class="servicios__titulo">Mis Servicios</h2>
+		<div class="servicios__list">
+			<div class="servicios__card">
+				<CardServicio
+					titulo="Diseño Web"
+					imagen="/servicios/web.svg"
+					texto="Desde desarrollos basados en plantillas hasta desarrollos a medida según tus necesidades"
+				/>
+			</div>
+			<div class="servicios__card">
+				<CardServicio
+					titulo="App Móvil"
+					imagen="/servicios/mobile.svg"
+					texto="Creación de aplicaciones tanto para Android como iOS. Lo mejor de lo mejor"
+				/>
+			</div>
+			<div class="servicios__card">
+				<CardServicio
+					titulo="Desarrollos a medida"
+					imagen="/servicios/gear.svg"
+					texto="Buscamos la manera de hacer realidad tus ideas con las tecnologías a nuestro alcance"
+				/>
+			</div>
+			<div class="servicios__card">
+				<CardServicio
+					titulo="Marketing Digital"
+					imagen="/servicios/laptop.svg"
+					texto="Consultoría y desarrollo de estrategías de marketing digital para que consigas tus objetivos"
+				/>
+			</div>
+			<div class="servicios__card">
+				<CardServicio
+					titulo="Mantenimiento Web"
+					imagen="/servicios/cloud.svg"
+					texto="Nos ocupamos de que tu web este operativa mientras tu te dedicas a tus cosas"
+				/>
+			</div>
+			<div class="servicios__card">
+				<CardServicio
+					titulo="Comercio Electrónico"
+					imagen="/servicios/cart.svg"
+					texto="Creación y puesta online de tu tienda con las mejores tecnologias para que vendas mucho"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.servicios {
+		&__section {
+			background-image: linear-gradient(to top, #054a80 0%, #000000 100%);
+			padding-top: 2rem;
+		}
+
+		&__titulo {
+			font-size: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		&__list {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: 2rem;
+
+			& > * {
+				width: max(200px, 30%);
+			}
+		}
+	}
+</style>
