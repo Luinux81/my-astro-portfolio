@@ -15,13 +15,19 @@ if (tipo === "submit") {
 	<i class="fa-solid fa-arrow-right"></i>
 </button>
 
-<style lang="scss">
+<style lang="scss" is:global>
 	.button {
 		padding: 1rem 1.5rem;
 		font-size: 1.33rem;
 		border-radius: 10px;
 		background-color: var(--color-primary);
 		color: white;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.5rem;
+		text-decoration: none;
 
 		i {
 			margin-left: 0.5rem;
