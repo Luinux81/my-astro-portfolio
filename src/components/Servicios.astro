@@ -4,7 +4,7 @@ import CardServicio from "./CardServicio.astro";
 
 <section class="servicios__section">
 	<div class="servicios__content container--static">
-		<h2 class="servicios__titulo">Mis Servicios</h2>
+		<h2 class="servicios__titulo" id="servicios">Mis Servicios</h2>
 		<div class="servicios__list">
 			<div class="servicios__card">
 				<CardServicio
@@ -56,13 +56,9 @@ import CardServicio from "./CardServicio.astro";
 	.servicios {
 		&__section {
 			background-image: var(--background-gradient-reverse);
-			padding-top: 2rem;
-			padding-bottom: 2rem;
 		}
 
 		&__titulo {
-			font-size: 2rem;
-			margin-bottom: 2rem;
 		}
 
 		&__list {

@@ -4,7 +4,7 @@ import Button from "./Button.astro";
 
 <section class="contacto__section">
 	<div class="contacto__container container--static">
-		<h2 class="contacto__titulo">Ponte en Contacto</h2>
+		<h2 class="contacto__titulo" id="contacto">Ponte en Contacto</h2>
 		<div class="contacto__content">
 			<div class="contacto__form">
 				<form
@@ -37,12 +37,9 @@ import Button from "./Button.astro";
 	.contacto {
 		&__section {
 			background-image: var(--background-gradient-reverse);
-			padding: 1rem;
 		}
 
 		&__titulo {
-			font-size: 2rem;
-			margin-bottom: 2rem;
 		}
 
 		&__content {

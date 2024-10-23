@@ -24,7 +24,7 @@ import Button from "./Button.astro";
 		margin-top: calc(0px - var(--header-altura));
 		padding-top: var(--header-altura);
 		height: 100vh;
-		background-image: linear-gradient(#054a80 0%, #000000 100%);
+		background-image: var(--background-gradient);
 
 		display: flex;
 		flex-direction: column;
@@ -39,7 +39,7 @@ import Button from "./Button.astro";
 		}
 
 		& .hero__heading {
-			font-size: 3rem;
+			font-size: 4rem;
 			text-align: center;
 			margin: 2rem auto;
 
@@ -48,7 +48,10 @@ import Button from "./Button.astro";
 			}
 
 			& > span > span {
-				color: lightblue;
+				background: linear-gradient(135deg, lightyellow, orange 50%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				// color: var(--color-primary-tint);
 			}
 		}
 

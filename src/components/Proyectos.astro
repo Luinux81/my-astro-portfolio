@@ -4,7 +4,7 @@ import CardProyecto from "./CardProyecto.astro";
 
 <section class="proyectos__section">
 	<div class="proyectos__content container--static">
-		<h2 class="proyectos__titulo">Mis Trabajos</h2>
+		<h2 class="proyectos__titulo" id="proyectos">Mis Trabajos</h2>
 		<div class="proyectos__list">
 			<CardProyecto
 				titulo="Templo Transition"
@@ -26,15 +26,12 @@ import CardProyecto from "./CardProyecto.astro";
 	.proyectos {
 		&__section {
 			background-image: var(--background-gradient);
-			padding-bottom: 2rem;
 		}
 
 		&__content {
 		}
 
 		&__titulo {
-			font-size: 2rem;
-			margin-bottom: 2rem;
 		}
 
 		&__list {
