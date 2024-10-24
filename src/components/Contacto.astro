@@ -17,24 +17,29 @@ import Button from "./Button.astro";
 						name="access_key"
 						value="b89f29e2-596c-4143-bb25-adcf3b2c1068"
 					/>
-					<label for="nombre">Nombre</label>
-					<input type="text" id="nombre" name="nombre" />
-					<label for="email">Email</label>
-					<input type="text" id="email" name="email" />
-					<label for="mensaje">Mensaje</label>
-					<textarea rows="10" id="mensaje" name="mensaje"></textarea>
-					<div class="cta">
-						<Button
-							titulo="Enviar"
-							tipo="submit"
-							right_icon="fa-solid fa-arrow-right"
-						/>
-					</div>
+					<input
+						type="hidden"
+						name="subjet"
+						value="Nuevo mensaje desde Portfolio"
+					/>
+					<label for="nombre"></label>Nombre
 				</form>
+				<input type="text" id="nombre" name="nombre" required />
+				<label for="email">Email</label>
+				<input type="text" id="email" name="email" required />
+				<label for="mensaje">Mensaje</label>
+				<textarea rows="10" id="mensaje" name="mensaje" required></textarea>
+				<div class="cta">
+					<Button
+						titulo="Enviar"
+						tipo="submit"
+						right_icon="fa-solid fa-arrow-right"
+					/>
+				</div>
 			</div>
-			<div class="contacto__imagen">
-				<img src="/my-astro-portfolio/contact.png" />
-			</div>
+		</div>
+		<div class="contacto__imagen">
+			<img src="/my-astro-portfolio/contact.png" />
 		</div>
 	</div>
 </section>
