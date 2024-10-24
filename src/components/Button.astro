@@ -1,19 +1,56 @@
 ---
-const { titulo, tipo } = Astro.props;
+interface Props {
+	titulo: string;
+	tipo?: string;
+	url?: string;
+	target?: string;
+	left_icon?: string;
+	right_icon?: string;
+}
 
-let type;
+let { titulo, tipo, url, target, left_icon, right_icon } = Astro.props;
 
-if (tipo === "submit") {
-	type = "type='submit'";
+switch (tipo) {
+	case "submit":
+		tipo = "submit";
+		break;
+	case "link":
+		tipo = "link";
+		break;
+	default:
+		tipo = "";
+		break;
+}
+
+if (!url) {
+	url = "#";
+}
+
+if (target === "_blank") {
+	target = "target='_blank'";
 } else {
-	type = "";
+	target = "";
 }
 ---
 
-<button {type} class="button button--cta">
-	{titulo}
-	<i class="fa-solid fa-arrow-right"></i>
-</button>
+{
+	tipo === "submit" && (
+		<button type="submit" class="button button--cta">
+			{left_icon ? <i class={left_icon} /> : ""}
+			{titulo}
+			{right_icon ? <i class={right_icon} /> : ""}
+		</button>
+	)
+}
+{
+	(tipo === "link" || tipo === "") && (
+		<a href={url} class="button button--cta" {target}>
+			{left_icon ? <i class={left_icon} /> : ""}
+			{titulo}
+			{right_icon ? <i class={right_icon} /> : ""}
+		</a>
+	)
+}
 
 <style lang="scss" is:global>
 	.button {
@@ -28,6 +65,7 @@ if (tipo === "submit") {
 		align-items: center;
 		gap: 0.5rem;
 		text-decoration: none;
+		width: fit-content;
 
 		i {
 			margin-left: 0.5rem;
