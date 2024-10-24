@@ -23,7 +23,13 @@ import Button from "./Button.astro";
 					<input type="text" id="email" name="email" />
 					<label for="mensaje">Mensaje</label>
 					<textarea rows="10" id="mensaje" name="mensaje"></textarea>
-					<div class="cta"><Button titulo="Enviar" /></div>
+					<div class="cta">
+						<Button
+							titulo="Enviar"
+							tipo="submit"
+							right_icon="fa-solid fa-arrow-right"
+						/>
+					</div>
 				</form>
 			</div>
 			<div class="contacto__imagen">

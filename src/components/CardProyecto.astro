@@ -1,5 +1,16 @@
 ---
-const { titulo, descripcion, imagen, imagen_background, reverse } = Astro.props;
+interface Props {
+	titulo: string;
+	descripcion: string;
+	live_url?: string;
+	imagen: string;
+	imagen_background: string;
+	reverse: string;
+}
+
+const { titulo, descripcion, live_url, imagen, imagen_background, reverse } =
+	Astro.props;
+
 import Button from "./Button.astro";
 
 let class_content = "";
@@ -17,7 +28,12 @@ if (reverse === "true") {
 			<p class="card__descripcion">
 				{descripcion}
 			</p>
-			<Button titulo="Ver Más" />
+			<Button
+				titulo="Ver Más"
+				right_icon="fa-solid fa-arrow-right"
+				target="_blank"
+				url={live_url}
+			/>
 		</div>
 		<div class="card__content--imagen">
 			<img class="card__imagen--background" src={imagen_background} />
