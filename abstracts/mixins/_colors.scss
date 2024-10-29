@@ -1,0 +1,57 @@
+/*
+Uso: 
+
+// $color-primary: #3e60be;
+// $color-secondary: #23ded2;
+// $color-accent: #e5389b;
+// $color-neutral-light: #efefef;
+// $color-neutral-dark: #323232;
+
+// $simple-gradient: $color-primary, $color-secondary;
+// $complex-gradient: $color-primary, $color-secondary, $color-accent;
+
+// $scheme-default: $color-neutral-light, $color-primary;
+// $scheme-secondary: $color-neutral-dark, $color-secondary;
+// $scheme-accent-gradient: $color-neutral-dark, $complex-gradient;
+// $scheme-simple-gradient: $color-neutral-dark, $simple-gradient;
+
+
+@include color-scheme(yellow,black);
+@include color-scheme($scheme-default...);
+@include color-scheme($scheme-accent-gradient...);
+@include color-scheme($scheme-simple-gradient...);
+@include color-scheme(black, (white, black, yellow));
+
+*/
+
+/// Mixin para aplicar un esquema de color a un elemento
+/// Permite definir un color de texto y un fondo, ya sea sólido o degradado
+/// @param {String} $texto - Color del texto
+/// @param {Color} $bg - Color de fondo (puede ser un solo color o una lista para un degradado)
+@mixin color-scheme($texto, $bg){
+  @if list.length($bg) == 1{
+    background-color: $bg;
+  }
+  @else{
+    background-image: linear-gradient(to top left, $bg);
+  }
+  color: $texto;
+}
+
+/// Mixin para generar variables CSS de color con sombras y tintes
+/// Crea un conjunto de variables personalizadas basadas en un color base, ajustando la luminosidad
+/// @param {Color} $color - Color base para las variables
+/// @param {String} $label - Etiqueta para las variables generadas
+@mixin color-variables($color, $label) {    
+  @for $i from 4 to 1 {
+    $shadow: adjust-color($color, $lightness: -$i * 10%);
+    --color-#{$label}-#{500 - ($i * 100)}: #{$shadow};
+  }
+  
+  --color-#{$label}-500: #{$color};
+
+  @for $i from 4 to 1 {
+    $tint: adjust-color($color, $lightness: $i * 10%);
+    --color-#{$label}-#{500 + ($i * 100)}: #{$tint};
+  }
+}
