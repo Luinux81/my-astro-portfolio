@@ -4,99 +4,230 @@
 
 <header>
 	<nav class="container--static">
-        <div class="logo">            
-            <a href="/">
-                <img class="logo__imagen" src="/my-astro-portfolio/logo.png" />
-                <span class="logo__texto">LBCDev</span>
-            </a>
-        </div>
-		<ul>
-			<li class="nav__item"><a href="#home">Incio</a></li>
-			<li class="nav__item"><a href="#servicios">Servicios</a></li>
-			<li class="nav__item"><a href="#proyectos">Mis Trabajos</a></li>
-			<li class="nav__item"><a href="#contacto">Contacto</a></li>
-		</ul>
+		<div class="logo">
+			<a href="/">
+				<img class="logo__imagen" src="/my-astro-portfolio/logo.png" />
+				<span class="logo__texto">LBCDev</span>
+			</a>
+		</div>
+		<div class="navigation">
+			<div class="navigation--desktop">
+				<ul>
+					<li class="navigation__item"><a href="#home">Incio</a></li>
+					<li class="navigation__item">
+						<a href="#servicios">Servicios</a>
+					</li>
+					<li class="navigation__item">
+						<a href="#proyectos">Mis Trabajos</a>
+					</li>
+					<li class="navigation__item">
+						<a href="#contacto">Contacto</a>
+					</li>
+				</ul>
+			</div>
+			<div class="navigation--mobile">
+				<button class="navigation__button">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+		</div>
 	</nav>
 </header>
 
-<style>
-    :root{
-        --header-altura: 75px;
-    }
+<div class="navigation__drawer">
+	<ul>
+		<li class="navigation__item"><a href="#home">Incio</a></li>
+		<li class="navigation__item">
+			<a href="#servicios">Servicios</a>
+		</li>
+		<li class="navigation__item">
+			<a href="#proyectos">Mis Trabajos</a>
+		</li>
+		<li class="navigation__item">
+			<a href="#contacto">Contacto</a>
+		</li>
+	</ul>
+	<button class="navigation__drawer__button">
+		<i class="fas fa-times"></i>
+	</button>
+</div>
+
+<script>
+	const buttonOpen = document.querySelector(
+		".navigation--mobile .navigation__button"
+	);
+	const buttonClose = document.querySelector(
+		".navigation__drawer .navigation__drawer__button"
+	);
+
+	buttonOpen.addEventListener("click", (e) => {
+		const drawer = document.querySelector(".navigation__drawer");
+		drawer.classList.add("navigation__drawer--open");
+	});
+
+	buttonClose.addEventListener("click", (e) => {
+		const drawer = document.querySelector(".navigation__drawer");
+		drawer.classList.remove("navigation__drawer--open");
+	});
+</script>
+
+<style lang="scss">
+	:root {
+		--header-altura: 75px;
+	}
 
 	header {
-        position:relative;
-		background-color: transparent
+		position: relative;
+		background-color: transparent;
 		color: white;
 		padding: 0.5rem;
-        height: var(--header-altura);
-        z-index: 2;
-	}
-
-    nav{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-    }
-
-    .logo{
-        display:flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .logo a{
-        text-decoration: none;
-        font-size: 1.33rem;
-        color: white;
-
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .logo a:hover{
-        color: lightblue;
-    }
-
-    .logo .logo__imagen {
 		height: var(--header-altura);
-        max-height: 50px;
-		background-color: rgba(0, 0, 0, 0.25);
+		z-index: 2;
 	}
 
-    .logo .logo__texto{
-        font-size: 1.33rem;
-        font-weight: bold;
-        letter-spacing: 3px;
-    }
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+	}
 
-	nav > ul {
-		list-style: none;
+	.nav__logo {
+		margin: 0 1.5rem;
+	}
+
+	.logo {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 1rem;
+
+		a {
+			text-decoration: none;
+			font-size: 1.33rem;
+			color: white;
+
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+
+			&:hover {
+				color: lightblue;
+			}
+		}
+
+		&__imagen {
+			height: var(--header-altura);
+			max-height: 50px;
+			background-color: rgba(0, 0, 0, 0.25);
+		}
+
+		&__texto {
+			font-size: 1.33rem;
+			font-weight: bold;
+			letter-spacing: 3px;
+		}
+	}
+
+	.navigation {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		gap: 2rem;
-		padding: 0;
-		margin: 0;
-	}
-	.nav__item {
-		margin: 0;
-		font-size: 1.33rem;
+		gap: 1rem;
+
+		&--desktop {
+			& > ul {
+				list-style: none;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				gap: 2rem;
+				padding: 0;
+				margin: 0;
+			}
+		}
+
+		&--mobile {
+			display: none;
+
+			button {
+				background-color: transparent;
+				color: white;
+				outline: none;
+				border: none;
+			}
+
+			i {
+				font-size: 2rem;
+			}
+		}
+
+		&__item {
+			margin: 0;
+			font-size: 1.33rem;
+
+			a {
+				text-decoration: none;
+				color: white;
+
+				&:hover {
+					color: lightblue;
+				}
+			}
+		}
+
+		&__drawer {
+			position: fixed;
+			top: 0;
+			left: -100vw;
+			width: 100vw;
+			height: 100vh;
+			background-color: black;
+			z-index: 10;
+			transition: linear 0.25s all;
+			padding: 1rem;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			&--open {
+				left: 0 !important;
+				overflow: hidden;
+			}
+
+			&__button {
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				background-color: transparent;
+				color: white;
+				border: 0;
+
+				i {
+					font-size: 2rem;
+				}
+			}
+
+			& > ul {
+				list-style: none;
+				text-transform: uppercase;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 2rem;
+			}
+		}
 	}
 
-    .nav__item a{
-		text-decoration: none;
-        color: white;
-	}
+	@media (max-width: 900px) {
+		.navigation--desktop {
+			display: none;
+		}
 
-	.nav__item a:hover {
-		color: lightblue;
+		.navigation--mobile {
+			display: block;
+		}
 	}
-
-    .nav__logo{
-        margin:0 1.5rem;
-    }
 </style>
