@@ -4,12 +4,12 @@
 
 <footer>
 	<nav class="container--static">
-        <div class="logo">            
-            <a href="/">
-                <img class="logo__imagen" src="/my-astro-portfolio/logo.png" />
-                <span class="logo__texto">LBCDev</span>
-            </a>
-        </div>
+		<div class="logo">
+			<a href="/">
+				<img class="logo__imagen" src="/my-astro-portfolio/logo.png" />
+				<span class="logo__texto">LBCDev</span>
+			</a>
+		</div>
 		<ul>
 			<li class="nav__item"><a href="#home">Incio</a></li>
 			<li class="nav__item"><a href="#servicios">Servicios</a></li>
@@ -19,59 +19,59 @@
 	</nav>
 </footer>
 
-<style>
-    :root{
-        --footer-altura: 75px;
-    }
-
-	footer {
-        position:relative;
-		background-color: transparent
-		color: white;
-		padding: 0.5rem;
-        height: var(--footer-altura);
-        z-index: 2;
+<style lang="scss">
+	:root {
+		--footer-altura: 75px;
 	}
 
-    nav{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-    }
-
-    .logo{
-        display:flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .logo a{
-        text-decoration: none;
-        font-size: 1.33rem;
-        color: white;
-
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .logo a:hover{
-        color: lightblue;
-    }
-
-    .logo .logo__imagen {
+	footer {
+		position: relative;
+		background-color: transparent;
+		color: white;
+		padding: 0.5rem;
 		height: var(--footer-altura);
-        max-height: 50px;
+		z-index: 2;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+	}
+
+	.logo {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.logo a {
+		text-decoration: none;
+		font-size: 1.33rem;
+		color: white;
+
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.logo a:hover {
+		color: lightblue;
+	}
+
+	.logo .logo__imagen {
+		height: var(--footer-altura);
+		max-height: 50px;
 		background-color: rgba(0, 0, 0, 0.25);
 	}
 
-    .logo .logo__texto{
-        font-size: 1.33rem;
-        font-weight: bold;
-        letter-spacing: 3px;
-    }
+	.logo .logo__texto {
+		font-size: 1.33rem;
+		font-weight: bold;
+		letter-spacing: 3px;
+	}
 
 	nav > ul {
 		list-style: none;
@@ -87,16 +87,33 @@
 		font-size: 1.33rem;
 	}
 
-    .nav__item a{
+	.nav__item a {
 		text-decoration: none;
-        color: white;
+		color: white;
 	}
 
 	.nav__item a:hover {
 		color: lightblue;
 	}
 
-    .nav__logo{
-        margin:0 1.5rem;
-    }
+	.nav__logo {
+		margin: 0 1.5rem;
+	}
+
+	@media (max-width: 768px) {
+		footer {
+			height: unset;
+			align-items: flex-start;
+		}
+
+		nav {
+			flex-direction: row-reverse;
+			align-items: flex-start;
+
+			& > ul {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
+	}
 </style>
