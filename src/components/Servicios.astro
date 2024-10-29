@@ -70,8 +70,31 @@ import CardServicio from "./CardServicio.astro";
 			gap: 2rem;
 
 			& > * {
-				width: max(200px, 30%);
+				width: max(300px, 30%);
 			}
 		}
+	}
+
+	@media (max-width: 1024px) {
+		.servicios__list > * {
+			width: max(300px, 45%);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.servicios__list > * {
+			width: max(300px, 100%);
+		}
+	}
+
+	.auto-grid {
+		--min-column-size: 20rem;
+
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: repeat(
+			auto-fit,
+			minmax(min(var(--min-column-size), 100%), 1fr)
+		);
 	}
 </style>
