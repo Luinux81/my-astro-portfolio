@@ -26,16 +26,16 @@ html {
 /**
  * Basic styles for links
  */
-a {
-  color: $color-brand;
-  text-decoration: none;
-  font-family: inherit;
+// a {
+//   color: $color-brand;
+//   text-decoration: none;
+//   font-family: inherit;
 
-  @include on-event {
-    // color: red;
-    text-decoration: none;
-  }
-}
+//   @include on-event {
+//     // color: red;
+//     text-decoration: none;
+//   }
+// }
 
 img{
   max-width: 100%;
