@@ -1,0 +1,131 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// @import url('http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700');
+@import url('http://fonts.googleapis.com/css?family=Montserrat:400italic,700italic,400,700');
+
+$googleFonts: 'Montserrat';
+
+
+/// Regular font family
+/// @type List
+$text-font-stack: $googleFonts, 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+
+
+/// Main brand color
+/// @type Color
+$color-brand: rgb(34, 62, 187) !default;
+
+/// @type Color
+$color-primary:  rgb(0, 0, 0) !default;
+///@type Color 
+$color-secondary:  rgb(0, 0, 0) !default;
+///@type Color 
+$color-terciary:  rgb(0, 0, 0) !default;
+
+
+///@type Color 
+$color-accent: $color-brand;
+///@type Color 
+$color-background: $color-secondary;
+
+/// @type Color
+$color-text: rgb(255, 255, 255) !default;
+
+
+/// @type Color
+$light-grey: rgb(237, 237, 237) !default;
+/// @type Color
+$mid-grey: rgb(153, 153, 153) !default;
+/// @type Color
+$dark-grey: rgb(68, 68, 68) !default;
+
+
+/// Background color
+/// @type Color
+$bg-color: rgb(0, 0, 0) !default;
+
+/// Copy text color
+/// @type Color
+$text-color: rgb(255, 255, 255) !default;
+
+/// Accent color
+/// @type Color
+$accent-color: rgb(34, 62, 187) !default;
+
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1180px !default;
+
+
+
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
+) !default;
+
+/// Media Queries breakpoints
+$mq_breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "900":          900px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+
+/**
+* Tipografía con escala Perfect Fourth (16px 1.333)
+*/
+$perfect-fourth : (
+  "xss":  0.6rem,
+  "xs":   0.8rem,
+  "s":    1rem,
+  "m":    1.333rem,
+  "l":    1.777rem,
+  "xl":   2.369rem,
+  "xxl":  3.157rem,
+  "xxxl": 4.209rem,
+);
+
+/**
+* Escalas tipográficas
+*/
+$typo-scales : (
+  "perfect-fourth": $perfect-fourth,
+);
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
+
+
+
+:root{
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-terciary: #{$color-terciary};
+  --color-accent: #{$color-accent};
+  --color-brand: #{$color-brand};
+  --color-background: #{$color-background};
+
+  --color-text: #{$color-text};
+}

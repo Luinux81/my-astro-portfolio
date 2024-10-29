@@ -1,0 +1,51 @@
+@use 'sass:list';
+
+/// Event wrapper para los estados hover, active y focus
+/// Permite la inclusión opcional del selector actual
+/// @param {Bool} $self [false] - Si es true, incluye el selector actual en los estados de evento (hover, active, focus)
+/// 
+/// @author Harry Roberts
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Tweet original de Harry Roberts
+
+@mixin on-event($self: false) {
+    @if $self {
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        @content;
+      }
+    } @else {
+      &:hover,
+      &:active,
+      &:focus {
+        @content;
+      }
+    }
+  }
+  
+  /// Envuelve un selector para aplicar estilos cuando está anidado dentro de un contexto específico. Útil para crear estilos basados en el contexto de manera más legible.
+  /// @param {String} $context - El selector de contexto dentro del cual se aplicarán los estilos
+  ///
+  /// @author Kitty Giraudel
+  @mixin when-inside($context) {
+    #{$context} & {
+      @content;
+    }
+  }
+  
+  
+  /// Mixin para aplicar estilos en función de un punto de ruptura (breakpoint).Soporta consultas de media queries con min-width (por defecto) o max-width.
+  /// @param {String} $width - El ancho del punto de ruptura (debe coincidir con una clave en el mapa $mq_breakpoints)
+  /// @param {String} $type [min] - Tipo de media query (min o max)
+  @mixin mq($width, $type: min) {
+    @if map_has_key($mq_breakpoints, $width) {
+        $width: map_get($mq_breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+  }

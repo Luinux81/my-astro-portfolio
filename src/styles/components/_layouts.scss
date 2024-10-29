@@ -1,0 +1,266 @@
+// -----------------------------------------------------------------------------
+// This file contains reusable layouts and grids
+// -----------------------------------------------------------------------------
+
+.container{
+    &--classic{
+        max-width: min(95%, $max-width);
+        margin: 0 auto;
+    }
+
+    &--static{
+        max-width: $max-width;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &--fluid{
+        --padding-inline: 1rem;
+        --content-max-width: #{$max-width};        
+        --breakout-max-width: calc(#{$max-width} + 10ch);
+        --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+        display: grid;
+        grid-template-columns: 
+        [full-width-start] css-minmax(var(--padding-inline), 1fr)
+        [breakout-start] css-minmax(0, var(--breakout-size)) 
+        [content-start] css-min(calc(100% - (var(--padding-inline) * 2)), var(--content-max-width)) [content-end] 
+        css-minmax(0, var(--breakout-size)) [breakout-end] 
+        css-minmax(var(--padding-inline), 1fr) [full-width-end];
+
+        & > * {
+            grid-column: content;
+        }
+
+        & > .breakout {
+            grid-column: breakout;
+        }
+
+        & > .full-width {
+            grid-column: full-width;
+        }        
+    }
+}
+
+// Cluster
+
+.cluster{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+// Flexible Grid
+
+.flexible-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    & > * {
+        flex: 1;
+    }
+}
+
+// Auto Grid
+
+.auto-grid{
+    --min-column-size: 20rem;
+
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, css-minmax( css-min(var(--min-column-size), 100%) , 1fr));    
+}
+
+// Reel
+
+.reel{
+    --num-slides-visibles: 2;
+    --gap: 1rem;
+
+    display: grid;
+    gap: var(--gap);
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / var(--num-slides-visibles)) - (var(--gap) / 2));
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: var(--gap);
+
+    & > * {
+        scroll-snap-align: start;
+    }
+}
+
+// Main with sidebar
+
+.main-with-sidebar{
+    --gap: 1rem;
+    --sidebar-size: 300px;
+    --main-min-size: 500px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: var(--gap);
+
+    & > :first-child{
+        flex-basis: var(--main-min-size);
+        flex-grow: 9999;        
+    }
+
+    & > :last-child{
+        flex-basis: var(--sidebar-size);
+        flex-grow: 1;
+    }
+}
+
+// Pancake stack
+
+.pancake-stack{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+// Holy Grail
+
+.holy-grail{
+    display: grid;
+    grid-template: auto 1fr auto / auto 1fr auto;
+
+    & > .header{
+        grid-column: 1 / 4;
+    }
+
+    & > .left-side{
+        grid-column: 1 / 2;
+    }
+
+    & > .main{
+        grid-column: 2 / 3;
+    }
+
+    & > .right-side{
+        grid-column: 3 / 4;
+    }
+
+    & > .footer{
+        grid-column: 1 / 4;
+    }
+}
+
+// 12-Span grid
+
+.grid-12-span{
+    display: grid;
+    grid-template-columns: repeat(12, fr);
+
+    // & > .span-12 {
+    //     grid-column: 1 / span 12;
+    // }
+
+    // &  > .span-6 {
+    //     grid-column: 1 / span 6;
+    // }
+
+    // & > .span-4 {
+    //     grid-column: 4 / span 4;
+    // }
+
+    // & > .span-2 {
+    //     grid-column: 3 / span 2;
+    // }
+}
+
+//12-12 Chess grid
+
+.grid-12-chess{
+    display: grid;
+    // height: 100vh;
+
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+
+    // & > .item-1 {
+    //     grid-row: 1 / span 3;
+    //     grid-column: 1 / span 3;
+    // }
+
+    // & > .item-2 {
+    //     grid-row: 4 / span 3;
+    //     grid-column: 4 / span 3;
+    // }
+
+    // & > .item-3 {
+    //     grid-row: 7 / span 3;
+    //     grid-column: 7 / span 3;
+    // }
+
+    // & > .item-4 {
+    //     grid-row: 10 / span 3;
+    //     grid-column: 10 / span 3;
+    // }
+}
+
+.full-layout-area{
+    display: grid;
+    height: 100vh;
+    gap: 24px;
+
+    & > .header {
+        grid-area: header;
+    }
+
+    & > .navigation {
+        grid-area: nav;
+    }
+
+    & > .ads {
+        grid-area: ads;
+    }
+
+    & > .sidebar {
+        grid-area: sidebar;
+    }
+
+    & > .main {
+        grid-area: main;
+    }
+
+    & > .footer {
+        grid-area: footer;
+    }
+
+    &--mobile{
+        grid-template-rows: auto auto 1fr auto auto auto;
+
+        grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "sidebar"
+        "ads"
+        "footer";
+    }
+
+    &--tablet{
+        grid-template-rows: auto auto 1fr auto;
+
+        grid-template-areas:
+        "header header header"
+        "nav nav nav "
+        "sidebar main main"
+        "ads footer footer";
+    }
+
+    &--desktop{
+        grid-template-rows: auto auto 1fr auto;
+
+        grid-template-areas:
+        "header header header header"
+        "sidebar nav nav ads"
+        "sidebar main main ads"
+        "footer footer footer footer";
+    }
+}
