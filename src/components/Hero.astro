@@ -19,7 +19,7 @@ import Button from "./Button.astro";
 			right_icon="fa-solid fa-magnifying-glass"
 		/>
 	</div>
-	<img src="/my-astro-portfolio/hero.png" />
+	<img class="hero__imagen" src="/my-astro-portfolio/hero.png" />
 </div>
 
 <style lang="scss">
@@ -28,7 +28,7 @@ import Button from "./Button.astro";
 		z-index: 1;
 		margin-top: calc(0px - var(--header-altura));
 		padding-top: var(--header-altura);
-		height: 100vh;
+		min-height: 100vh;
 		background-image: var(--background-gradient);
 
 		display: flex;
@@ -67,6 +67,18 @@ import Button from "./Button.astro";
 			line-height: 1.5;
 			font-weight: normal;
 			margin-bottom: 2rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.hero {
+			& .hero__heading {
+				font-size: 3rem;
+			}
+
+			& .hero__subheading {
+				font-size: 1rem;
+			}
 		}
 	}
 </style>
