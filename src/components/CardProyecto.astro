@@ -11,6 +11,9 @@ interface Props {
 const { titulo, descripcion, live_url, imagen, imagen_background, reverse } =
 	Astro.props;
 
+import "../styles/abstracts/_variables.scss";
+import "../styles/abstracts/mixins/_utils.scss";
+
 import Button from "./Button.astro";
 
 let class_content = "";
@@ -94,9 +97,26 @@ if (reverse === "true") {
 
 			&--front {
 				position: relative;
-				height: 80%;
 				z-index: 2;
 				margin: auto 0;
+			}
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.card {
+			&__content {
+				flex-direction: column-reverse;
+
+				&--info {
+					width: 100%;
+				}
+				&--imagen {
+					width: 100%;
+				}
+				&--reverse {
+					flex-direction: column-reverse;
+				}
 			}
 		}
 	}
